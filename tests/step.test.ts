@@ -25,13 +25,15 @@ describe("step utilities", () => {
       ],
     }
 
+    const [stepOneArrow, stepTwoArrow, unsteppedArrow] = graphics.arrows ?? []
+
     expect(
       getGraphicsFilteredByStep(graphics, {
         activeStep: 2,
         maxStep: 2,
         showLastStep: false,
       }).arrows,
-    ).toEqual([graphics.arrows?.[1], graphics.arrows?.[2]])
+    ).toEqual([stepTwoArrow, unsteppedArrow])
   })
 
   test("uses arrow steps when showing the last step", () => {
